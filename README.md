@@ -32,10 +32,10 @@ Cada modelo pode ser escolhido por **uma equipe só**. A descrição completa de
 
 1. Um integrante clica em **Fork** (canto superior direito) e depois em **Create fork**.
 2. No fork, em **Settings → Collaborators → Add people**, adicione os colegas.
-3. No fork, edite este README (lápis ✏️): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
+3. No fork, edite este README (lápis): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
 4. Dividam o trabalho e comecem os requisitos em `docs/requisitos.md`.
 
-⚠️ Não editem o repositório do professor, só o fork da equipe.
+Não editem o repositório do professor, só o fork da equipe.
 
 ## O que entregar
 
