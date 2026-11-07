@@ -1,7 +1,7 @@
 # Trabalho de Análise e Projeto de Sistemas: Arquiteturas de Software
 
 **Disciplina:** Análise e Projeto de Sistemas (ADS252N01)  
-**Prazo:** 18/11/2026
+**Prazo:** 13/11/2026
 
 ## Equipe
 
