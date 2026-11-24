@@ -1,16 +1,16 @@
 # Trabalho de Análise e Projeto de Sistemas: Arquiteturas de Software
 
 **Disciplina:** Análise e Projeto de Sistemas (ADS252N01)  
-**Prazo:** 18/11/2026
+**Prazo:** 27/11/2026
 
-67 Equipe
+5 Equipe
 
 **Nome do time:** Os mercenários 
 **Modelo escolhido:** 5 (1 a 5)
 
 | Nome | Usuário do GitHub |
-| Remulo A. Fernandes | --- |
-| Eduardo Metellis  |  |
+| Remulo A. Fernandes | reminh961-lgtm |
+| Eduardo Metellis  | dasilvametellis-cloud |
 |  |  |
 |  |  |
 |  |  |
@@ -19,7 +19,8 @@
 ## Modelos
 
 | Modelo | Sistema | Arquitetura principal |
-| --- | --- | --- |
+| 5 | Chat em tempo real (SmartChatz) | Cliente-servidor |
+
 | 1 | Delivery de comida | Microsserviços com API Gateway |
 | 2 | Monitoramento de sensores | Orientada a eventos |
 | 3 | Sistema acadêmico | Camadas (3-tier) |
