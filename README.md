@@ -5,16 +5,22 @@
 
 ## Equipe
 
-**Nome do time:** ____________________  
-**Modelo escolhido:** ___ (1 a 5)
+**Nome do time:** haykiuu.main  
+**Modelo escolhido:** _3_ (1 a 5)
 
 | Nome | Usuário do GitHub |
 | --- | --- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Mayara | Mayfriend
+| Rafaela | CodeLura1990
+| Walter | snowbarbosa
+| João | mirainov
+| Jamili | bmj7hm7gs8-max
+| Gabriel H | asshenriquesantos-hub
+| Luiz Felipe | lipsdevs
+| Ruan | desouzahortencesruan-design
+| Gabriela | matosribeirog
+| Jully | JullyLi
+| Sidney | SidneyBrasil
 
 ## Modelos
 
@@ -53,7 +59,27 @@ Não editem o repositório do professor, só o fork da equipe.
 
 ## Como rodar
 
-(A equipe preenche: o comando para subir o sistema e como executar o fluxo principal.)
+**Pré-requisito:** Docker Desktop instalado.
+
+**Subir o sistema (um comando):**
+
+    docker compose up --build
+
+**Executar o fluxo principal (matrícula em disciplina):**
+
+1. Abra http://localhost:8080 no navegador
+2. Informe o número de matrícula do aluno (1, 2 ou 3) e o código da disciplina (1 a 4)
+3. Clique em **Matricular** e veja a mensagem de resposta
+
+**Arquitetura (3 camadas):**
+
+- **Apresentação:** tela HTML servida pelo nginx (porta 8080)
+- **Negócio:** API Flask com as regras de matrícula (porta 5000)
+- **Dados:** banco PostgreSQL
+
+A tela só fala com a API, e só a API acessa o banco.
+
+**Observação:** se alterar o `servicos/dados/init.sql`, rode `docker compose down -v` antes de subir de novo, senão o banco antigo continua valendo.
 
 ## Entrega
 

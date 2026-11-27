@@ -1,0 +1,43 @@
+services:
+  banco:
+    image: postgres:16
+    container_name: banco_academico
+    environment:
+      POSTGRES_DB: academico
+      POSTGRES_USER: academico
+      POSTGRES_PASSWORD: academico
+    ports:
+      - "5432:5432"
+    volumes:
+      - dados_postgres:/var/lib/postgresql/data
+      - ./servicos/dados/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U academico -d academico"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./servicos/negocio
+    container_name: api_academico
+    environment:
+      DB_HOST: banco
+      DB_NAME: academico
+      DB_USER: academico
+      DB_PASSWORD: academico
+    ports:
+      - "5000:5000"
+    depends_on:
+      banco:
+        condition: service_healthy
+
+  tela:
+    build: ./servicos/apresentacao
+    container_name: tela_academica
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  dados_postgres:

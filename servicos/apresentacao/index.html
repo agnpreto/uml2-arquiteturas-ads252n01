@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Acadêmico</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 30px auto; padding: 0 15px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    input, button { padding: 8px; margin: 4px 0; }
+    .ok { color: green; font-weight: bold; }
+    .erro { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Sistema Acadêmico</h1>
+
+  <h2>Disciplinas disponíveis</h2>
+  <table id="tabela">
+    <thead><tr><th>Código</th><th>Disciplina</th><th>Vagas</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Matrícula</h2>
+  <label>Número de matrícula do aluno: <input type="number" id="aluno" min="1"></label><br>
+  <label>Código da disciplina: <input type="number" id="disciplina" min="1"></label><br>
+  <button onclick="matricular()">Matricular</button>
+  <button onclick="minhasMatriculas()">Ver minhas matrículas</button>
+  <p id="mensagem"></p>
+  <ul id="lista"></ul>
+
+  <script>
+    const API = "http://localhost:5000";
+    async function carregarDisciplinas() {
+      const resp = await fetch(API + "/disciplinas");
+      const disciplinas = await resp.json();
+      const corpo = document.querySelector("#tabela tbody");
+      corpo.innerHTML = "";
+      for (const d of disciplinas) {
+        corpo.innerHTML += `<tr><td>${d.id}</td><td>${d.nome}</td><td>${d.vagas}</td></tr>`;
+      }
+    }
+    carregarDisciplinas();
+    async function matricular() {
+      const aluno_id = Number(document.getElementById("aluno").value);
+      const disciplina_id = Number(document.getElementById("disciplina").value);
+      const resp = await fetch(API + "/matricula", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ aluno_id, disciplina_id })
+      });
+      const dados = await resp.json();
+      const msg = document.getElementById("mensagem");
+      msg.textContent = dados.mensagem;
+      msg.className = dados.status;
+      carregarDisciplinas();
+    }
+
+    async function minhasMatriculas() {
+      const aluno_id = document.getElementById("aluno").value;
+      if (!aluno_id) return;
+      const resp = await fetch(API + "/matriculas/" + aluno_id);
+      const lista = await resp.json();
+      const ul = document.getElementById("lista");
+      ul.innerHTML = lista.length ? "" : "<li>Nenhuma matrícula.</li>";
+      for (const d of lista) ul.innerHTML += `<li>${d.nome}</li>`;
+    }
+  </script>
+</body>
+</html>
