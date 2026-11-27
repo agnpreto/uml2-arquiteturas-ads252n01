@@ -54,8 +54,26 @@ Cada modelo pode ser escolhido por **uma equipe só**. A descrição completa de
 
 ## Como rodar
 
-(A equipe preenche: o comando para subir o sistema e como executar o fluxo principal.)
+## Como executar o SmartChatz
 
+### Requisitos
+- Node.js instalado no computador.
+- npm disponível.
+
+### Inicialização no Windows
+
+1. Abra a pasta principal do projeto.
+2. Execute o arquivo `iniciar-smartchatz.bat`.
+3. Aguarde a inicialização do servidor.
+4. O navegador abrirá automaticamente no endereço:
+
+http://localhost:3000
+
+O script instala as dependências necessárias caso ainda não estejam instaladas e inicia o servidor do SmartChatz.
+
+### Encerramento
+
+Para encerrar o sistema, feche a janela do terminal do servidor.
 ## Entrega
 
 No fork, clique em **Contribute → Open pull request**, preencha o modelo que aparece e clique em **Create pull request**. Um Pull Request por equipe. Cada novo `git push` no fork atualiza o mesmo Pull Request até o prazo.
