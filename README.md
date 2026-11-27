@@ -1,7 +1,7 @@
 # Trabalho de Análise e Projeto de Sistemas: Arquiteturas de Software
 
 **Disciplina:** Análise e Projeto de Sistemas (ADS252N01)  
-**Prazo:** 18/11/2026
+**Prazo:** 27/11/2026
 
 ## Equipe
 
@@ -35,6 +35,24 @@ Cada modelo pode ser escolhido por **uma equipe só**. A descrição completa de
 2. No fork, em **Settings → Collaborators → Add people**, adicione os colegas.
 3. No fork, edite este README (lápis ✏️): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
 4. Dividam o trabalho e comecem os requisitos em `docs/`.
+3. No fork, edite este README (lápis): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
+4. Dividam o trabalho e comecem os requisitos em `docs/requisitos.md`.
+
+Não editem o repositório do professor, só o fork da equipe.
+
+## O que entregar
+
+| Arquivo | Conteúdo |
+| --- | --- |
+| `README.md` | Equipe, modelo e **como rodar** o sistema (um comando) |
+| `docs/requisitos.md` | 5 requisitos funcionais e 3 não funcionais |
+| `docs/arquitetura.png` | Diagrama da arquitetura |
+| `docs/sequencia.png` | Diagrama de sequência do fluxo principal |
+| `LOGS.md` | Logs do fluxo principal, copiados do terminal |
+| `docker-compose.yml` | Ou um script de execução descrito neste README |
+| `servicos/` | Uma pasta por componente |
+
+**Cada integrante deve ter pelo menos 3 commits** com mensagens claras.
 
 ## Como rodar
 
