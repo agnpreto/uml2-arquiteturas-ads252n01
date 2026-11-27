@@ -35,3 +35,17 @@ Cada modelo pode ser escolhido por **uma equipe só**. A descrição completa de
 2. No fork, em **Settings → Collaborators → Add people**, adicione os colegas.
 3. No fork, edite este README (lápis ✏️): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
 4. Dividam o trabalho e comecem os requisitos em `docs/`.
+
+## Como rodar
+
+Subir todos os serviços SOA com um comando:
+
+```bash
+docker compose up -d --build
+```
+
+Executar o harness de verificação automatizada (healthchecks, compra com split, idempotência e compensação):
+
+```powershell
+Get-Content scripts/harness.py | docker compose exec -T -e SOA_ENV=docker orquestrador python -
+```
