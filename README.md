@@ -5,16 +5,17 @@
 
 ## Equipe
 
-**Nome do time:** ____________________  
-**Modelo escolhido:** ___ (1 a 5)
+**Nome do time:** XT  
+**Modelo escolhido:** 4 : Marketplace com pagamento. 
 
 | Nome | Usuário do GitHub |
 | --- | --- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Augusto Sousa da Gama | @augdev1 |
+| Fábio Henrique | @fabyts68 |
+| Kelvin Cruz Ribeiro | - |
+| Lucas Freitas | - |
+| Anderson Arruda | - |
+| Renan Oliveira 
 
 ## Modelos
 
@@ -32,6 +33,8 @@ Cada modelo pode ser escolhido por **uma equipe só**. A descrição completa de
 
 1. Um integrante clica em **Fork** (canto superior direito) e depois em **Create fork**.
 2. No fork, em **Settings → Collaborators → Add people**, adicione os colegas.
+3. No fork, edite este README (lápis ✏️): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
+4. Dividam o trabalho e comecem os requisitos em `docs/`.
 3. No fork, edite este README (lápis): nome do time, modelo escolhido e integrantes. Clique em **Commit changes**.
 4. Dividam o trabalho e comecem os requisitos em `docs/requisitos.md`.
 
@@ -53,8 +56,14 @@ Não editem o repositório do professor, só o fork da equipe.
 
 ## Como rodar
 
-(A equipe preenche: o comando para subir o sistema e como executar o fluxo principal.)
+Subir todos os serviços SOA com um comando:
 
-## Entrega
+```bash
+docker compose up -d --build
+```
 
-No fork, clique em **Contribute → Open pull request**, preencha o modelo que aparece e clique em **Create pull request**. Um Pull Request por equipe. Cada novo `git push` no fork atualiza o mesmo Pull Request até o prazo.
+Executar o harness de verificação automatizada (healthchecks, compra com split, idempotência e compensação):
+
+```powershell
+Get-Content scripts/harness.py | docker compose exec -T -e SOA_ENV=docker orquestrador python -
+```

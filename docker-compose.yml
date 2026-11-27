@@ -1,0 +1,64 @@
+services:
+  catalogo:
+    build: ./servicos/catalogo
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  pedidos:
+    build: ./servicos/pedidos
+    ports:
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  pagamentos:
+    build: ./servicos/pagamentos
+    ports:
+      - "8003:8003"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  notificacoes:
+    build: ./servicos/notificacoes
+    ports:
+      - "8004:8004"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8004/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  orquestrador:
+    build: ./servicos/orquestrador
+    ports:
+      - "8006:8000"
+    environment:
+      - CATALOGO_URL=http://catalogo:8001
+      - PEDIDOS_URL=http://pedidos:8002
+      - PAGAMENTOS_URL=http://pagamentos:8003
+      - NOTIFICACOES_URL=http://notificacoes:8004
+    depends_on:
+      catalogo:
+        condition: service_healthy
+      pedidos:
+        condition: service_healthy
+      pagamentos:
+        condition: service_healthy
+      notificacoes:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
