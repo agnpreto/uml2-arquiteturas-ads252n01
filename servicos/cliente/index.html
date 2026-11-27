@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartChatz - Chat em tempo real</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>SmartChatz</h1>
+            <p>Conecte-se e converse em tempo real!</p>
+        </header>
+
+        <section id="entrada">
+            <input type="text" id="nome" placeholder="Digite seu nome">
+            <button id="btnEntrar">Entrar no chat</button>
+        </section>
+
+        <section id="areaChat" class="oculto">
+            <div id="mensagens"></div>
+
+            <form id="formMensagem">
+                <input
+                    type="text"
+                    id="mensagem"
+                    placeholder="Digite sua mensagem..."
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

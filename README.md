@@ -3,14 +3,14 @@
 **Disciplina:** Análise e Projeto de Sistemas (ADS252N01)  
 **Prazo:** 27/11/2026
 
-## Equipe
+5 Equipe
 
-**Nome do time:** ____________________  
-**Modelo escolhido:** ___ (1 a 5)
+**Nome do time:** Os mercenários 
+**Modelo escolhido:** 5 (1 a 5)
 
 | Nome | Usuário do GitHub |
-| --- | --- |
-|  |  |
+| Remulo A. Fernandes | reminh961-lgtm |
+| Eduardo Metellis  | dasilvametellis-cloud |
 |  |  |
 |  |  |
 |  |  |
@@ -19,7 +19,8 @@
 ## Modelos
 
 | Modelo | Sistema | Arquitetura principal |
-| --- | --- | --- |
+| 5 | Chat em tempo real (SmartChatz) | Cliente-servidor |
+
 | 1 | Delivery de comida | Microsserviços com API Gateway |
 | 2 | Monitoramento de sensores | Orientada a eventos |
 | 3 | Sistema acadêmico | Camadas (3-tier) |
@@ -53,8 +54,26 @@ Não editem o repositório do professor, só o fork da equipe.
 
 ## Como rodar
 
-(A equipe preenche: o comando para subir o sistema e como executar o fluxo principal.)
+## Como executar o SmartChatz
 
+### Requisitos
+- Node.js instalado no computador.
+- npm disponível.
+
+### Inicialização no Windows
+
+1. Abra a pasta principal do projeto.
+2. Execute o arquivo `iniciar-smartchatz.bat`.
+3. Aguarde a inicialização do servidor.
+4. O navegador abrirá automaticamente no endereço:
+
+http://localhost:3000
+
+O script instala as dependências necessárias caso ainda não estejam instaladas e inicia o servidor do SmartChatz.
+
+### Encerramento
+
+Para encerrar o sistema, feche a janela do terminal do servidor.
 ## Entrega
 
 No fork, clique em **Contribute → Open pull request**, preencha o modelo que aparece e clique em **Create pull request**. Um Pull Request por equipe. Cada novo `git push` no fork atualiza o mesmo Pull Request até o prazo.
